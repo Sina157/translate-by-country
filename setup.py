@@ -1,6 +1,4 @@
-#!/usr/bin/env python3
-
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open('README.md') as f:
     readme = f.read()
@@ -8,16 +6,18 @@ with open('README.md') as f:
 
 
 setup(
-    name='hello_world_1989',  # The name of the package
+    name='translate_by_country',  # The name of the package
     version= '0.0.1',  # the version number of the package
     description='A module to translate with country information',
     # A short description of package
     long_description=readme,
     # A long description of package
     author='Sina157',  # The maintainer
+     packages=find_packages(),
     author_email='sina.shams@yahoo.com',  # The maintainer's email address
     url='https://github.com/Sina157/translate_by_country',  # The package's website
-    py_modules=['googletrans==4.0.0-rc1', ],  # The python modules to include
-    license='MIT',  # The license type
+    install_requires=[
+     'googletrans==4.0.0-rc1'
+    ],
     entry_points={}
 )

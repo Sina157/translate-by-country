@@ -1,1 +1,1 @@
-from translate_by_country import *
+from .translate_by_country import *

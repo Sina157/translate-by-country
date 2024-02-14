@@ -1,3 +1,3 @@
 # translate_by_country
 
-Developing...
+v 0.0.2

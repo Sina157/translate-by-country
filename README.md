@@ -44,3 +44,11 @@ from translate_by_country import translate_text_by_name
 
 print(translate_text_by_name("hello world","albania"))
 ```
+<br>
+Translates text based on country emoji
+
+```
+from translate_by_country import translate_text_by_name
+
+print(translate_text_by_emoji("hello world","🇹🇼"))
+```

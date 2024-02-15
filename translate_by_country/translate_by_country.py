@@ -2,6 +2,14 @@ from googletrans import Translator
 
 
 def translate_text(text,language) -> str:
+    """
+    Translates the given text to the specified language using Google Translate API.
+    Args:
+        text (str): The text to be translated.
+        language (str): The language to translate the text into.
+    Returns:
+        str: The translated text.
+    """
     translator = Translator(service_urls=['translate.google.com'])
     translated_text = translator.translate(text, dest=language).text
     return translated_text
@@ -9,8 +17,12 @@ def translate_text(text,language) -> str:
 
 def translate_text_by_alpha2(text,country_alpha2) -> str:
     """
-    Translates text based on country alpha2
-    example: translate_text_by_alpha2("hello world","ax")
+    Translates the given text based on the country's alpha2 code.
+    Args:
+        text (str): The text to be translated.
+        country_alpha2 (str): The alpha2 code of the country.
+    Returns:
+        str: The translated text.
     """
     country_alpha2 = country_alpha2.lower()
     language = {
@@ -266,8 +278,12 @@ def translate_text_by_alpha2(text,country_alpha2) -> str:
   
 def translate_text_by_alpha3(text,country_alpha3) -> str: 
     """
-    Translates text based on country alpha3
-    example: translate_text_by_alpha3("hello world","aut")
+    Translates the given text based on the country's alpha3 code.
+    Args:
+        text (str): The text to be translated.
+        country_alpha3 (str): The alpha3 code of the country.
+    Returns:
+        str: The translated text.
     """
     country_alpha3 = country_alpha3.lower()
     language = {
@@ -523,8 +539,12 @@ def translate_text_by_alpha3(text,country_alpha3) -> str:
 
 def translate_text_by_code(text,country_code) -> str:
     """
-    Translates text based on country code
-    example: translate_text_by_code("hello world",98)
+    Translates the given text based on the country's code.
+    Args:
+        text (str): The text to be translated.
+        country_code (int): The code of the country.
+    Returns:
+        str: The translated text.
     """
     country_code = int(country_code)
     language = {
@@ -758,8 +778,12 @@ def translate_text_by_code(text,country_code) -> str:
 
 def translate_text_by_name(text,country_name) -> str:
     """
-    Translates text based on country name
-    example: translate_text_by_name("hello world","albania")
+    Translates the given text based on the country's name.
+    Args:
+        text (str): The text to be translated.
+        country_name (str): The name of the country.
+    Returns:
+        str: The translated text.
     """
     country_name= country_name.lower()
     language = {
@@ -1007,6 +1031,266 @@ def translate_text_by_name(text,country_name) -> str:
     "zambia": "English",
     "zimbabwe": "English"
     }.get(country_name)
+    result = translate_text(text,language)
+    return result
+
+
+def translate_text_by_emoji(text,country_emoji) -> str:
+    """
+    Translates the given text based on the country's emoji.
+    Args:
+        text (str): The text to be translated.
+        country_emoji (str): The emoji of the country.
+    Returns:
+        str: The translated text.
+    """
+    language ={
+    "🇦🇫": "Persian",
+    "🇦🇽": "Swedish",
+    "🇦🇱": "Albanian",
+    "🇩🇿": "Arabic",
+    "🇦🇸": "Samoan",
+    "🇦🇩": "Catalan",
+    "🇦🇴": "Portuguese",
+    "🇦🇮": "English",
+    "🇦🇬": "English",
+    "🇦🇷": "Spanish",
+    "🇦🇲": "Armenian",
+    "🇦🇼": "Dutch",
+    "🇦🇺": "English",
+    "🇦🇹": "German",
+    "🇦🇿": "Azerbaijani",
+    "🇧🇸": "English",
+    "🇧🇭": "Arabic",
+    "🇧🇩": "Bengali",
+    "🇧🇧": "English",
+    "🇧🇾": "Belarusian",
+    "🇧🇪": "Dutch",
+    "🇧🇿": "English",
+    "🇧🇯": "French",
+    "🇧🇲": "English",
+    "🇧🇹": "Dzongkha",
+    "🇧🇴": "Spanish",
+    "🇧🇦": "Bosnian",
+    "🇧🇼": "English",
+    "🇧🇻": "Norwegian",
+    "🇧🇷": "Portuguese",
+    "🇮🇴": "English",
+    "🇧🇳": "Malay",
+    "🇧🇬": "Bulgarian",
+    "🇧🇫": "French",
+    "🇧🇮": "Kirundi",
+    "🇰🇭": "Khmer",
+    "🇨🇲": "French",
+    "🇨🇦": "English",
+    "🇨🇻": "Portuguese",
+    "🇰🇾": "English",
+    "🇨🇫": "French",
+    "🇹🇩": "French",
+    "🇨🇱": "Spanish",
+    "🇨🇳": "Mandarin Chinese",
+    "🇨🇽": "English",
+    "🇨🇨": "English",
+    "🇨🇴": "Spanish",
+    "🇰🇲": "Arabic",
+    "🇨🇬": "French",
+    "🇨🇩": "French",
+    "🇨🇰": "English",
+    "🇨🇷": "Spanish",
+    "🇨🇮": "French",
+    "🇭🇷": "Croatian",
+    "🇨🇺": "Spanish",
+    "🇨🇾": "Greek",
+    "🇨🇿": "Czech",
+    "🇩🇰": "Danish",
+    "🇩🇯": "Arabic",
+    "🇩🇲": "English",
+    "🇩🇴": "Spanish",
+    "🇪🇨": "Spanish",
+    "🇪🇬": "Arabic",
+    "🇸🇻": "Spanish",
+    "🇬🇶": "French",
+    "🇪🇷": "Tigrinya",
+    "🇪🇪": "Estonian",
+    "🇪🇹": "Amharic",
+    "🇫🇰": "English",
+    "🇫🇴": "Faroese",
+    "🇫🇯": "English",
+    "🇫🇮": "Finnish",
+    "🇫🇷": "French",
+    "🇬🇫": "French",
+    "🇵🇫": "French",
+    "🇹🇫": "French",
+    "🇬🇦": "French",
+    "🇬🇲": "English",
+    "🇬🇪": "Georgian",
+    "🇩🇪": "German",
+    "🇬🇭": "English",
+    "🇬🇮": "English",
+    "🇬🇷": "Greek",
+    "🇬🇱": "Greenlandic",
+    "🇬🇩": "English",
+    "🇬🇵": "French",
+    "🇬🇺": "English",
+    "🇬🇹": "Spanish",
+    "🇬🇬": "English",
+    "🇬🇳": "French",
+    "🇬🇼": "Portuguese",
+    "🇬🇾": "English",
+    "🇭🇹": "French",
+    "🇻🇦": "Italian",
+    "🇭🇳": "Spanish",
+    "🇭🇰": "Chinese",
+    "🇭🇺": "Hungarian",
+    "🇮🇸": "Icelandic",
+    "🇮🇳": "Hindi",
+    "🇮🇩": "Indonesian",
+    "🇮🇷": "Persian",
+    "🇮🇶": "Arabic",
+    "🇮🇪": "Irish",
+    "🇮🇲": "English",
+    "🇮🇱": "Hebrew",
+    "🇮🇹": "Italian",
+    "🇯🇲": "English",
+    "🇯🇵": "Japanese",
+    "🇯🇪": "English",
+    "🇯🇴": "Arabic",
+    "🇰🇿": "Kazakh",
+    "🇰🇪": "Swahili",
+    "🇰🇮": "English",
+    "🇰🇵": "Korean",
+    "🇰🇷": "Korean",
+    "🇰🇼": "Arabic",
+    "🇰🇬": "Kyrgyz",
+    "🇱🇦": "Lao",
+    "🇱🇻": "Latvian",
+    "🇱🇧": "Arabic",
+    "🇱🇸": "Sotho",
+    "🇱🇷": "English",
+    "🇱🇾": "Arabic",
+    "🇱🇮": "German",
+    "🇱🇹": "Lithuanian",
+    "🇱🇺": "French",
+    "🇲🇴": "Chinese",
+    "🇲🇰": "Macedonian",
+    "🇲🇬": "Malagasy",
+    "🇲🇼": "English",
+    "🇲🇾": "Malay",
+    "🇲🇻": "Dhivehi",
+    "🇲🇱": "French",
+    "🇲🇹": "Maltese",
+    "🇲🇭": "English",
+    "🇲🇶": "French",
+    "🇲🇷": "Arabic",
+    "🇲🇺": "English",
+    "🇾🇹": "French",
+    "🇲🇽": "Spanish",
+    "🇫🇲": "English",
+    "🇲🇩": "Moldovan",
+    "🇲🇨": "French",
+    "🇲🇳": "Mongolian",
+    "🇲🇪": "Montenegrin",
+    "🇲🇸": "English",
+    "🇲🇦": "Arabic",
+    "🇲🇿": "Portuguese",
+    "🇲🇲": "Burmese",
+    "🇳🇦": "English",
+    "🇳🇷": "Nauru",
+    "🇳🇵": "Nepali",
+    "🇳🇱": "Dutch",
+    "🇳🇨": "French",
+    "🇳🇿": "English",
+    "🇳🇮": "Spanish",
+    "🇳🇪": "French",
+    "🇳🇬": "English",
+    "🇳🇺": "Niuean",
+    "🇳🇫": "English",
+    "🇲🇵": "English",
+    "🇳🇴": "Norwegian",
+    "🇴🇲": "Arabic",
+    "🇵🇰": "Urdu",
+    "🇵🇼": "English",
+    "🇵🇸": "Arabic",
+    "🇵🇦": "Spanish",
+    "🇵🇬": "English",
+    "🇵🇾": "Spanish",
+    "🇵🇪": "Spanish",
+    "🇵🇭": "Filipino",
+    "🇵🇳": "English",
+    "🇵🇱": "Polish",
+    "🇵🇹": "Portuguese",
+    "🇵🇷": "Spanish",
+    "🇶🇦": "Arabic",
+    "🇷🇪": "French",
+    "🇷🇴": "Romanian",
+    "🇷🇺": "Russian",
+    "🇷🇼": "Kinyarwanda",
+    "🇧🇱": "French",
+    "🇸🇭": "English",
+    "🇰🇳": "English",
+    "🇱🇨": "English",
+    "🇲🇫": "French",
+    "🇵🇲": "French",
+    "🇻🇨": "English",
+    "🇼🇸": "Samoan",
+    "🇸🇲": "Italian",
+    "🇸🇹": "Portuguese",
+    "🇸🇦": "Arabic",
+    "🇸🇳": "French",
+    "🇷🇸": "Serbian",
+    "🇸🇨": "English",
+    "🇸🇱": "English",
+    "🇸🇬": "English",
+    "🇸🇽": "Dutch",
+    "🇸🇰": "Slovak",
+    "🇸🇮": "Slovenian",
+    "🇸🇧": "English",
+    "🇸🇴": "Somali",
+    "🇿🇦": "Afrikaans",
+    "🇬🇸": "English",
+    "🇸🇸": "English",
+    "🇪🇸": "Spanish",
+    "🇱🇰": "Sinhala",
+    "🇸🇩": "Arabic",
+    "🇸🇷": "Dutch",
+    "🇸🇯": "Norwegian",
+    "🇸🇿": "Swazi",
+    "🇸🇪": "Swedish",
+    "🇨🇭": "Swedish",
+    "🇸🇾": "Arabic",
+    "🇹🇼": "Chinese",
+    "🇹🇯": "Tajik",
+    "🇹🇿": "Swahili",
+    "🇹🇭": "Thai",
+    "🇹🇱": "Portuguese",
+    "🇹🇬": "French",
+    "🇹🇰": "English",
+    "🇹🇴": "Tongan",
+    "🇹🇹": "English",
+    "🇹🇳": "Arabic",
+    "🇹🇷": "Turkish",
+    "🇹🇲": "Turkmen",
+    "🇹🇨": "English",
+    "🇹🇻": "Tuvaluan",
+    "🇺🇬": "English",
+    "🇺🇦": "Ukrainian",
+    "🇦🇪": "Arabic",
+    "🇬🇧": "English",
+    "🇺🇸": "English",
+    "🇺🇲": "English",
+    "🇺🇾": "Spanish",
+    "🇺🇿": "Uzbek",
+    "🇻🇺": "French",
+    "🇻🇪": "Spanish",
+    "🇻🇳": "Vietnamese",
+    "🇻🇬": "English",
+    "🇻🇮": "English",
+    "🇼🇫": "French",
+    "🇪🇭": "Arabic",
+    "🇾🇪": "Arabic",
+    "🇿🇲": "English",
+    "🇿🇼": "English"
+    }.get(country_emoji)
     result = translate_text(text,language)
     return result
 

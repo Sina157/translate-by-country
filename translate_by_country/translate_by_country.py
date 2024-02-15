@@ -1,7 +1,17 @@
 from googletrans import Translator
 
 
-def translate_text_by_alpha2(text,country_alpha2):
+def translate_text(text,language) -> str:
+    translator = Translator(service_urls=['translate.google.com'])
+    translated_text = translator.translate(text, dest=language).text
+    return translated_text
+
+
+def translate_text_by_alpha2(text,country_alpha2) -> str:
+    """
+    Translates text based on country alpha2
+    example: translate_text_by_alpha2("hello world","ax")
+    """
     country_alpha2 = country_alpha2.lower()
     language = {
     "af": "Persian",
@@ -250,12 +260,15 @@ def translate_text_by_alpha2(text,country_alpha2):
     "zm": "English",
     "zw": "English"
     }.get(country_alpha2)
-    translator = Translator(service_urls=['translate.google.com'])
-    translated_text = translator.translate(text, dest=language).text
-    return translated_text
+    result = translate_text(text,language)
+    return result
   
   
-def translate_text_by_alpha3(text,country_alpha3):
+def translate_text_by_alpha3(text,country_alpha3) -> str: 
+    """
+    Translates text based on country alpha3
+    example: translate_text_by_alpha3("hello world","aut")
+    """
     country_alpha3 = country_alpha3.lower()
     language = {
     "afg": "Persian",
@@ -504,12 +517,15 @@ def translate_text_by_alpha3(text,country_alpha3):
     "zmb": "English",
     "zwe": "English"
     }.get(country_alpha3)
-    translator = Translator(service_urls=['translate.google.com'])
-    translated_text = translator.translate(text, dest=language).text
-    return translated_text
+    result = translate_text(text,language)
+    return result
 
 
-def translate_text_by_code(text,country_code):
+def translate_text_by_code(text,country_code) -> str:
+    """
+    Translates text based on country code
+    example: translate_text_by_code("hello world",98)
+    """
     country_code = int(country_code)
     language = {
     93: "Persian",
@@ -736,6 +752,261 @@ def translate_text_by_code(text,country_code):
     260: "English",
     263: "English"
     }.get(country_code)
-    translator = Translator(service_urls=['translate.google.com'])
-    translated_text = translator.translate(text, dest=language).text
-    return translated_text
+    result = translate_text(text,language)
+    return result
+
+
+def translate_text_by_name(text,country_name) -> str:
+    """
+    Translates text based on country name
+    example: translate_text_by_name("hello world","albania")
+    """
+    country_name= country_name.lower()
+    language = {
+    "afghanistan": "Persian",
+    "aland islands": "Swedish",
+    "albania": "Albanian",
+    "algeria": "Arabic",
+    "american samoa": "Samoan",
+    "andorra": "Catalan",
+    "angola": "Portuguese",
+    "anguilla": "English",
+    "antigua and barbuda": "English",
+    "argentina": "Spanish",
+    "armenia": "Armenian",
+    "aruba": "Dutch",
+    "australia": "English",
+    "austria": "German",
+    "azerbaijan": "Azerbaijani",
+    "bahamas": "English",
+    "bahrain": "Arabic",
+    "bangladesh": "Bengali",
+    "barbados": "English",
+    "belarus": "Belarusian",
+    "belgium": "Dutch",
+    "belize": "English",
+    "benin": "French",
+    "bermuda": "English",
+    "bhutan": "Dzongkha",
+    "bolivia": "Spanish",
+    "bosnia": "Bosnian",
+    "botswana": "English",
+    "bouvet island": "Norwegian",
+    "brazil": "Portuguese",
+    "british indian ocean territory": "English",
+    "brunei": "Malay",
+    "bulgaria": "Bulgarian",
+    "burkina faso": "French",
+    "burundi": "Kirundi",
+    "cambodia": "Khmer",
+    "cameroon": "French",
+    "canada": "English",
+    "cape verde": "Portuguese",
+    "cayman islands": "English",
+    "central african": "French",
+    "chad": "French",
+    "chile": "Spanish",
+    "china": "Mandarin Chinese",
+    "christmas island": "English",
+    "cocos islands": "English",
+    "colombia": "Spanish",
+    "comoros": "Arabic",
+    "congo": "French",
+    "cook islands": "English",
+    "costa rica": "Spanish",
+    "Ivory coast": "French",
+    "croatia": "Croatian",
+    "cuba": "Spanish",
+    "cyprus": "Greek",
+    "czech": "Czech",
+    "denmark": "Danish",
+    "djibouti": "Arabic",
+    "dominica": "English",
+    "dominican": "Spanish",
+    "ecuador": "Spanish",
+    "egypt": "Arabic",
+    "el salvador": "Spanish",
+    "equatorial guinea": "French",
+    "eritrea": "Tigrinya",
+    "estonia": "Estonian",
+    "ethiopia": "Amharic",
+    "falkland islands": "English",
+    "faroe islands": "Faroese",
+    "fiji": "English",
+    "finland": "Finnish",
+    "france": "French",
+    "french guiana": "French",
+    "french polynesia": "French",
+    "french southern territories": "French",
+    "gabon": "French",
+    "gambia": "English",
+    "georgia": "Georgian",
+    "germany": "German",
+    "ghana": "English",
+    "gibraltar": "English",
+    "greece": "Greek",
+    "greenland": "Greenlandic",
+    "grenada": "English",
+    "guadeloupe": "French",
+    "guam": "English",
+    "guatemala": "Spanish",
+    "guernsey": "English",
+    "guinea": "French",
+    "guinea-bissau": "Portuguese",
+    "guyana": "English",
+    "haiti": "French",
+    "holy see": "Italian",
+    "honduras": "Spanish",
+    "hong kong": "Chinese",
+    "hungary": "Hungarian",
+    "iceland": "Icelandic",
+    "india": "Hindi",
+    "indonesia": "Indonesian",
+    "iran": "Persian",
+    "iraq": "Arabic",
+    "ireland": "Irish",
+    "isle of man": "English",
+    "israel": "Hebrew",
+    "italy": "Italian",
+    "jamaica": "English",
+    "japan": "Japanese",
+    "jersey": "English",
+    "jordan": "Arabic",
+    "kazakhstan": "Kazakh",
+    "kenya": "Swahili",
+    "kiribati": "English",
+    "korea": "Korean",
+    "korea": "Korean",
+    "kuwait": "Arabic",
+    "kyrgyzstan": "Kyrgyz",
+    "lao": "Lao",
+    "latvia": "Latvian",
+    "lebanon": "Arabic",
+    "lesotho": "Sotho",
+    "liberia": "English",
+    "libya": "Arabic",
+    "liechtenstein": "German",
+    "lithuania": "Lithuanian",
+    "luxembourg": "French",
+    "macao": "Chinese",
+    "macedonia": "Macedonian",
+    "madagascar": "Malagasy",
+    "malawi": "English",
+    "malaysia": "Malay",
+    "maldives": "Dhivehi",
+    "mali": "French",
+    "malta": "Maltese",
+    "marshall islands": "English",
+    "martinique": "French",
+    "mauritania": "Arabic",
+    "mauritius": "English",
+    "mayotte": "French",
+    "mexico": "Spanish",
+    "micronesia": "English",
+    "moldova": "Moldovan",
+    "monaco": "French",
+    "mongolia": "Mongolian",
+    "montenegro": "Montenegrin",
+    "montserrat": "English",
+    "morocco": "Arabic",
+    "mozambique": "Portuguese",
+    "myanmar": "Burmese",
+    "namibia": "English",
+    "nauru": "Nauru",
+    "nepal": "Nepali",
+    "netherlands": "Dutch",
+    "new caledonia": "French",
+    "new zealand": "English",
+    "nicaragua": "Spanish",
+    "niger": "French",
+    "nigeria": "English",
+    "niue": "Niuean",
+    "norfolk island": "English",
+    "northern mariana islands": "English",
+    "norway": "Norwegian",
+    "oman": "Arabic",
+    "pakistan": "Urdu",
+    "palau": "English",
+    "palestine": "Arabic",
+    "panama": "Spanish",
+    "papua new guinea": "English",
+    "paraguay": "Spanish",
+    "peru": "Spanish",
+    "philippines": "Filipino",
+    "pitcairn": "English",
+    "poland": "Polish",
+    "portugal": "Portuguese",
+    "puerto rico": "Spanish",
+    "qatar": "Arabic",
+    "reunion": "French",
+    "romania": "Romanian",
+    "russia": "Russian",
+    "rwanda": "Kinyarwanda",
+    "bartholomew": "French",
+    "saint helena": "English",
+    "saint kitts and nevis": "English",
+    "saint lucia": "English",
+    "saint martin": "French",
+    "saint pierre and miquelon": "French",
+    "saint vincent and the grenadines": "English",
+    "samoa": "Samoan",
+    "san marino": "Italian",
+    "sao tome and principe": "Portuguese",
+    "saudi arabia": "Arabic",
+    "senegal": "French",
+    "serbia": "Serbian",
+    "seychelles": "English",
+    "sierra leone": "English",
+    "singapore": "English",
+    "sint maarten": "Dutch",
+    "slovakia": "Slovak",
+    "slovenia": "Slovenian",
+    "solomon islands": "English",
+    "somalia": "Somali",
+    "south africa": "Afrikaans",
+    "south georgia and the south sandwich islands": "English",
+    "south sudan": "English",
+    "spain": "Spanish",
+    "sri lanka": "Sinhala",
+    "sudan": "Arabic",
+    "suriname": "Dutch",
+    "svalbard and jan mayen": "Norwegian",
+    "swaziland": "Swazi",
+    "sweden": "Swedish",
+    "switzerland": "Swedish",
+    "syrian arab republic": "Arabic",
+    "taiwan": "Chinese",
+    "tajikistan": "Tajik",
+    "tanzania": "Swahili",
+    "thailand": "Thai",
+    "timor leste": "Portuguese",
+    "togo": "French",
+    "tokelau": "English",
+    "tonga": "Tongan",
+    "trinidad and tobago": "English",
+    "tunisia": "Arabic",
+    "turkey": "Turkish",
+    "turkmenistan": "Turkmen",
+    "turks and caicos islands": "English",
+    "tuvalu": "Tuvaluan",
+    "uganda": "English",
+    "ukraine": "Ukrainian",
+    "united arab emirates": "Arabic",
+    "united kingdom": "English",
+    "usa": "English",
+    "united states minor outlying islands": "English",
+    "uruguay": "Spanish",
+    "uzbekistan": "Uzbek",
+    "vanuatu": "French",
+    "venezuela": "Spanish",
+    "viet nam": "Vietnamese",
+    "virgin islands": "English",
+    "wallis and futuna": "French",
+    "western sahara": "Arabic",
+    "yemen": "Arabic",
+    "zambia": "English",
+    "zimbabwe": "English"
+    }.get(country_name)
+    result = translate_text(text,language)
+    return result
+

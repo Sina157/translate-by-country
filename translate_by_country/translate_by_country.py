@@ -1,7 +1,8 @@
 from googletrans import Translator
+from typing import Union
 
 
-def translate_text(text,language) -> str:
+def translate_text(text: str,language: str) -> str:
     """
     Translates the given text to the specified language using Google Translate API.
     Args:
@@ -15,7 +16,7 @@ def translate_text(text,language) -> str:
     return translated_text
 
 
-def translate_text_by_alpha2(text,country_alpha2) -> str:
+def translate_text_by_alpha2(text: str ,country_alpha2: str) -> str:
     """
     Translates the given text based on the country's alpha2 code.
     Args:
@@ -276,7 +277,7 @@ def translate_text_by_alpha2(text,country_alpha2) -> str:
     return result
   
   
-def translate_text_by_alpha3(text,country_alpha3) -> str: 
+def translate_text_by_alpha3(text: str,country_alpha3: str) -> str: 
     """
     Translates the given text based on the country's alpha3 code.
     Args:
@@ -537,7 +538,7 @@ def translate_text_by_alpha3(text,country_alpha3) -> str:
     return result
 
 
-def translate_text_by_code(text,country_code) -> str:
+def translate_text_by_code(text: str,country_code:Union[int, str]) -> str:
     """
     Translates the given text based on the country's code.
     Args:
@@ -776,7 +777,7 @@ def translate_text_by_code(text,country_code) -> str:
     return result
 
 
-def translate_text_by_name(text,country_name) -> str:
+def translate_text_by_name(text: str,country_name: str) -> str:
     """
     Translates the given text based on the country's name.
     Args:
@@ -1035,7 +1036,7 @@ def translate_text_by_name(text,country_name) -> str:
     return result
 
 
-def translate_text_by_emoji(text,country_emoji) -> str:
+def translate_text_by_emoji(text: str,country_emoji: str) -> str:
     """
     Translates the given text based on the country's emoji.
     Args:

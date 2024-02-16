@@ -53,8 +53,6 @@ from translate_by_country import translate_text_by_emoji
 print(translate_text_by_emoji("translate by country","🇹🇼")) # 按国家翻译
 ```
 
-It can be a good complement to the <a href="https://pypi.org/project/pycountry">pycountry</a> library.
-<br>
 If there was any problem, please <a href="https://github.com/Sina157/translate-by-country/issues">open an issue</a> for them on github.
 
 

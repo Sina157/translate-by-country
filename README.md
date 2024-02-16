@@ -17,7 +17,7 @@ Translates text based on country alpha2
 ```python
 from translate_by_country import translate_text_by_alpha2
 
-print(translate_text_by_alpha2("hello world","ax")) # Hej världen
+print(translate_text_by_alpha2("translate by country","ax")) # Översätt efter land
 ```
 <br>
 Translates text based on country alpha3
@@ -25,7 +25,7 @@ Translates text based on country alpha3
 ```python
 from translate_by_country import translate_text_by_alpha3
 
-print(translate_text_by_alpha3("hello world","aut")) # Hallo Welt
+print(translate_text_by_alpha3("translate by country","aut")) # nach Land übersetzt
 ```
 
 <br>
@@ -34,7 +34,7 @@ Translates text based on country code
 ```python
 from translate_by_country import translate_text_by_code
 
-print(translate_text_by_code("hello world",98)) # سلام دنیا
+print(translate_text_by_code("translate by country",98)) # ترجمه توسط کشور
 ```
 <br>
 Translates text based on country name
@@ -42,7 +42,7 @@ Translates text based on country name
 ```python
 from translate_by_country import translate_text_by_name
 
-print(translate_text_by_name("hello world","albania")) # Përshendetje Botë
+print(translate_text_by_name("translate by country","albania")) # Përkthejeni sipas vendit
 ```
 <br>
 Translates text based on country emoji
@@ -50,5 +50,5 @@ Translates text based on country emoji
 ```python
 from translate_by_country import translate_text_by_name
 
-print(translate_text_by_emoji("hello world","🇹🇼")) # 你好世界
+print(translate_text_by_emoji("translate by country","🇹🇼")) # 按国家翻译
 ```

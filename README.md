@@ -48,7 +48,7 @@ print(translate_text_by_name("translate by country","albania")) # Përkthejeni s
 Translates text based on country emoji
 
 ```python
-from translate_by_country import translate_text_by_name
+from translate_by_country import translate_text_by_emoji
 
 print(translate_text_by_emoji("translate by country","🇹🇼")) # 按国家翻译
 ```
